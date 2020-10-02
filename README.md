@@ -227,11 +227,11 @@ Click Test
 Click Save
 
 
-Task 9: Provide access for an additional engineer
-In the Cloud Console, navigate to IAM & Admin > IAM.
-Click +ADD.
-In the Add members to … pane, copy and paste the second user account for the lab to the New members field.
-In the Role dropdown, select Project > Editor.
+#Task 9: Provide access for an additional engineer
+In the Cloud Console, navigate to IAM & Admin > IAM. <br/>
+Click +ADD. <br/>
+In the Add members to … pane, copy and paste the second user account for the lab to the New members field. <br/>
+In the Role dropdown, select Project > Editor. <br/>
   ![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(183).png)
 Click SAVE.
   
