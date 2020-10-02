@@ -154,14 +154,14 @@ in Cloud Shell Editor
 cd ~/wp-k8s <br/>
 edit wp-env.yaml
 
-Replace username_goes_here and password_goes_here to wp-user and stormwind_rules, respectively.
+Replace username_goes_here and password_goes_here to **wp-user** and **stormwind_rules**, respectively.
 
 ![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(184).png)
 
 Save the file change.
 Run the following command to connect the cluster:
 After the Kubernetes cluster has created, click on the Connect button.
-![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(173).png)
+![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(177).png)
 
 *gcloud container clusters get-credentials griffin-dev --zone=us-east1-b*
 
@@ -235,3 +235,5 @@ In the Role dropdown, select Project > Editor.
   ![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(183).png)
 Click SAVE.
   
+  
+  *check the progress*
