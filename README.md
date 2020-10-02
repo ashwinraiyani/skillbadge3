@@ -53,7 +53,7 @@ In the Networking tab, add bastion to the Network tags.  <br/>
 
 Click Add network interface, make sure that you set up two Network interfaces  <br/>
 
-**griffin-dev-mgmt
+**griffin-dev-mgmt  <br/>
 griffin-prod-mgmt** 
 
 Click **Create**
@@ -63,21 +63,21 @@ Click CREATE FIREWALL RULE.  <br/>
 Configure the rule with the following parameters: <br/>
 
 
-*Name:	allow-bastion-dev-ssh
-Network:	griffin-dev-vpc
-Targets:	bastion
-Source IP ranges:	192.168.32.0/20
-Protocols and ports:	tcp: 22
+*Name:	allow-bastion-dev-ssh  <br/>
+Network:	griffin-dev-vpc  <br/>
+Targets:	bastion  <br/>
+Source IP ranges:	192.168.32.0/20  <br/>
+Protocols and ports:	tcp: 22  <br/>
 Click CREATE.*
 
 Click CREATE FIREWALL RULE again.
-Configure another rule with the following parameters:
+Configure another rule with the following parameters:  <br/>
 
-*Name:	allow-bastion-prod-ssh
-Network:	griffin-prod-vpc
-Targets:	bastion
-Source IP ranges:	192.168.48.0/20
-Protocols and ports:	tcp: 22
+*Name:	allow-bastion-prod-ssh  <br/>
+Network:	griffin-prod-vpc  <br/>
+Targets:	bastion <br/>
+Source IP ranges:	192.168.48.0/20 <br/>
+Protocols and ports:	tcp: 22 <br/>
 Click CREATE.*
 
 
@@ -96,21 +96,20 @@ Root password:	e.g. 12345678
 Note: In real practice, you must set a strong password.
 
 Click Create.
-** Wait for few minutes to create SQL instance it turned into green**
+**Wait for few minutes to create SQL instance it turned into green**
 After green mark only Click the griffin-dev-db in the SQL pane after it has created.
 Under Connect to this instance, click on Connect using Cloud Shell.
 Go back to the Cloud Shell, run:
 
-gcloud sql connect griffin-dev-db --user=root --quiet
+*gcloud sql connect griffin-dev-db --user=root --quiet*
 
 Enter the Root password generated in Step 4.
 
 In the SQL console, run the following query to create the wordpress database:
-   CREATE DATABASE wordpress;
+   CREATE DATABASE wordpress;  <br/>
+   GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";  <br/>
+   FLUSH PRIVILEGES;  <br/>
    
-   GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";
-   
-   FLUSH PRIVILEGES;
 Enter exit to quit the SQL shell.
 
 *Check the progress*
