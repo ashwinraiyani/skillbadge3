@@ -3,11 +3,11 @@
 Task 1: Create development VPC manually
 Make sure you create all resources in the us-east1 region and us-east1-b zone.
 
-In the Google Cloud Console, navigate to VPC network > VPC networks
-   Click on Create VPC network.
-   Enter griffin-dev-vpc to the Name field.
-   Select Custom for the Subnet creation mode.
-   Add griffin-dev-wp subnet with the following parameters:
+In the Google Cloud Console, navigate to VPC network > VPC networks <br/>
+   Click on Create VPC network. <br/>
+   Enter griffin-dev-vpc to the Name field. <br/>
+   Select Custom for the Subnet creation mode. <br/>
+   Add griffin-dev-wp subnet with the following parameters: <br/>
 
 Field	Value
    Name:	griffin-dev-wp
