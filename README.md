@@ -26,7 +26,7 @@ Click Create.
 
 Copy the Deployment Manager configuration files to Cloud Shell using the following command:  <br/>
 
-*gsutil cp -r gs://cloud-training/gsp321/dm ~/ * <br/>
+*gsutil cp -r gs://cloud-training/gsp321/dm ~/* <br/>
 
 cd dm  <br/>
 
@@ -36,7 +36,7 @@ edit prod-network.yaml  <br/>
 
 Go back to the Cloud Shell, use the following command to create the production VPC network with the configuration files:  <br/>
 
-*gcloud deployment-manager deployments create griffin-prod --config prod-network.yaml *  <br/>
+*gcloud deployment-manager deployments create griffin-prod --config prod-network.yaml*  <br/>
 
 # Task 3: Create bastion host  <br/>
 
@@ -108,7 +108,7 @@ Go back to the Cloud Shell, run:
 
 Enter the Root password generated in Step 4.
 
-In the SQL console, run the following query to create the wordpress database:
+In the SQL console, run the following query to create the wordpress database:<br/>
    CREATE DATABASE wordpress;  <br/>
    GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";  <br/>
    FLUSH PRIVILEGES;  <br/>
@@ -126,19 +126,19 @@ In the Cluster basics tab, configure:
 **Name: griffin-dev <br/>
 Zone: us-east1-b**
 
-In the left pane, click default-pool under NODE POOLS and set
+In the left pane, click default-pool set
 
 Number of nodes: 2
 
 Click Nodes Under default-pool, and set
 
-Series : N1
+Series : N1 <br/>
 Machine type: n1-standard-4
 
 Go to the Network tab, set
 
-Network: griffin-dev-vpc
-Node subnet: griffin-dev-wp
+Network: griffin-dev-vpc <br/>
+Node subnet: griffin-dev-wp <br/>
 
 Click CREATE.
 
@@ -147,14 +147,16 @@ Click CREATE.
 # Task 6: Prepare the Kubernetes cluster
 In the Cloud Shell, use the following command to copy the files for the Kubernetes:
 
-*gsutil cp -r gs://cloud-training/gsp321/wp-k8s ~/ *
-Open wp-k8s/wp-env.yaml with the Cloud Shell Editor.
+*gsutil cp -r gs://cloud-training/gsp321/wp-k8s ~/*
 
-cd ~/wp-k8s
+in Cloud Shell Editor
+
+cd ~/wp-k8s <br/>
 edit wp-env.yaml
 
 Replace username_goes_here and password_goes_here to wp-user and stormwind_rules, respectively.
-![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(173).png)
+
+![screen](https://github.com/ashwinraiyani/skillbadge3/blob/main/Screenshot%20(184).png)
 
 Save the file change.
 Run the following command to connect the cluster:
@@ -177,7 +179,7 @@ Use the command below to create the key, and then add the key to the Kubernetes 
        
 # Task 7: Create a WordPress deployment
 
-Open wp-k8s/wp-deployment.yaml with the Cloud Shell Editor
+In Cloud Shell Editor
 
 *cd ~/wp-k8s*
 *edit wp-deployment.yaml*
@@ -191,7 +193,7 @@ Save the file change.
 
 Go back to the Cloud Shell, run the following commands:
 
-*kubectl create -f wp-deployment.yaml*
+*kubectl create -f wp-deployment.yaml* <br/>
 *kubectl create -f wp-service.yaml*
 
 Now go to menu > Kubernetes Engine > Services and Ingress 
