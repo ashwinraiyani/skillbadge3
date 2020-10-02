@@ -9,61 +9,60 @@ In the Google Cloud Console, navigate to VPC network > VPC networks <br/>
    Select Custom for the Subnet creation mode. <br/>
    Add griffin-dev-wp subnet with the following parameters: <br/>
 
-Field	Value
-   Name:	griffin-dev-wp
-   Region:	us-east1
-   IP address range:	192.168.16.0/20
-   Click + Add subnet and add griffin-dev-mgmt subnet with the following parameters
+   Name:	griffin-dev-wp  <br/>
+   Region:	us-east1  <br/>
+   IP address range:	192.168.16.0/20  <br/>
 
-Field	Value
-Name:	griffin-dev-mgmt
-Region:	us-east1
-IP address range:	192.168.32.0/20
+Click + Add subnet and add griffin-dev-mgmt subnet with the following parameters
+
+
+Name:	griffin-dev-mgmt  <br/>
+Region:	us-east1 <br/>
+IP address range:	192.168.32.0/20  <br/>
 Click Create.
 
 
 Task 2: Create production VPC using Deployment Manager
 
-Copy the Deployment Manager configuration files to Cloud Shell using the following command:
+Copy the Deployment Manager configuration files to Cloud Shell using the following command:  <br/>
 
-gsutil cp -r gs://cloud-training/gsp321/dm ~/
+gsutil cp -r gs://cloud-training/gsp321/dm ~/  <br/>
 
-cd dm
+cd dm  <br/>
 
-edit prod-network.yaml
+edit prod-network.yaml  <br/>
 
-**Replace SET_REGION to *us-east1* in the editor, and then save the change.**
+**Replace SET_REGION to *us-east1* in the editor, and then save the change.**  <br/>
 
-Go back to the Cloud Shell, use the following command to create the production VPC network with the configuration files:
+Go back to the Cloud Shell, use the following command to create the production VPC network with the configuration files:  <br/>
 
-gcloud deployment-manager deployments create griffin-prod --config prod-network.yaml
+gcloud deployment-manager deployments create griffin-prod --config prod-network.yaml  <br/>
 
-Task 3: Create bastion host
+Task 3: Create bastion host  <br/>
 
-In the Cloud Console, navigate to Compute Engine > VM instances.
-Click Create VM Instance
-Use the following parameters to create the bastion host:
+In the Cloud Console, navigate to Compute Engine > VM instances. 
+Click Create VM Instance <br/>
+Use the following parameters to create the bastion host: <br/>
 
-Field	Value
-Name:	bastion
-Region:	us-east1
+Name:	bastion  <br/>
+Region:	us-east1  <br/>
 
 Expand the Management, security, disks, networking, sole tenancy section.
 
-In the Networking tab, add bastion to the Network tags.
+In the Networking tab, add bastion to the Network tags.  <br/>
 
-Click Add network interface, make sure that you set up two Network interfaces
+Click Add network interface, make sure that you set up two Network interfaces  <br/>
 
 **griffin-dev-mgmt
 griffin-prod-mgmt** 
 
 Click **Create**
 
-Now Navigate to VPC network > Firewall.
-Click CREATE FIREWALL RULE.
-Configure the rule with the following parameters:
+Now Navigate to VPC network > Firewall.  <br/>
+Click CREATE FIREWALL RULE.  <br/>
+Configure the rule with the following parameters: <br/>
 
-Field	Value
+
 *Name:	allow-bastion-dev-ssh
 Network:	griffin-dev-vpc
 Targets:	bastion
